@@ -4,82 +4,66 @@
   <title>Restaurant Menu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Define CSS for the menu container */
-    .menu-container {
-      display: flex;
-      flex-direction: column; /* Stack columns vertically */
-      max-width: 900px; /* Reduce the maximum width */
-      margin: 0 auto; /* Center the container horizontally */
-      padding: 20px; /* Add some padding */
+    /* CSS Styles for the page */
+    body {
+      text-align: center; /* Center aligns text in the body */
     }
 
-    /* Define CSS for each menu column */
-    .left-column,
-    .right-column {
-      flex-basis: 48%; /* Set the width of each column (48% with spacing) */
-      margin-bottom: 20px; /* Add space between columns */
+    .menu-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     .menu-item {
-      display: flex;
-      justify-content: space-between; /* Create space between unit price, quantity, and item */
-      align-items: center; /* Align unit price and quantity vertically */
-      margin-bottom: 10px;
+      flex: 0 1 calc(48% - 10px); /* Defines the width of each menu item */
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: rgba(255, 204, 153, 0.6); /* Background color with transparency */
+      text-align: left; /* Left-aligns text inside the menu item */
     }
 
-    /* Style the quantity box and buttons */
+    .menu-item:last-child {
+      margin-right: 0; /* Removes right margin for the last menu item in a row */
+    }
+
+    .menu-item span {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
     .quantity-box {
       display: flex;
       align-items: center;
     }
 
-    .unit-price-quantity {
-      display: flex; /* Create a flex container for unit price and quantity */
-      align-items: center; /* Vertically align unit price and quantity */
-    }
-
-    .unit-price {
-      margin-top: 2px; /* Add 2px margin at the top of unit price */
+    .quantity-box button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2em;
     }
 
     .quantity {
-      margin: 0 10px; /* Margin between quantity and item */
-      align-self: flex-start; /* Align quantity to the top */
+      margin: 0 10px;
     }
 
-    /* Style the minus button to add space on the left */
-    .minus {
-      margin-left: 5px; /* Add space on the left of the minus button */
+    /* CSS for the order list and order summary */
+    #order-list {
+      max-width: 400px;
+      margin: 20px auto;
+      text-align: left;
     }
 
-    /* Style the center box */
-    .center-box {
-      margin: 20px auto; /* Center the box horizontally */
-      padding: 20px;
-      background-color: rgba(255, 204, 153, 0.6); /* Peach background with 60% transparency */
-      border-radius: 10px; /* Rounded edges */
-      text-align: left; /* Align text to the left */
-      max-width: 400px; /* Reduce the width */
-    }
-
-    /* Style the order list */
     #order-list ul {
-      list-style-type: none; /* Remove list bullets */
+      list-style-type: none;
       padding: 0;
-    }
-
-    /* Style the item price */
-    .item-price {
-      margin-left: 10px; /* Add margin between item name and price */
-      flex-grow: 1; /* Allow item price to grow and fill available space */
-      text-align: right; /* Align item price to the right */
-    }
-
-    /* Receipt-style formatting */
-    .receipt {
-      border: 1px solid #ddd;
-      padding: 10px;
-      margin-top: 20px;
     }
 
     .receipt-item {
@@ -88,198 +72,118 @@
       margin-bottom: 5px;
     }
 
-    /* Style the order summary container */
-    .order-summary {
-      text-align: right; /* Align the contents to the right */
-      margin-top: 20px;
-    }
-
-    /* Style the total price display */
     #total-price {
-      font-weight: bold; /* Make the total price bold */
-      margin-top: 10px; /* Add some space at the top */
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: right; /* Right-aligns text inside the total price element */
     }
 
-    /* Style the order remarks input with initial text */
     #order-remarks-input {
       width: 100%;
       padding: 5px;
       margin-top: 5px;
-      color: #999; /* Faded text color */
-    }
-
-    /* Responsive styles for smaller screens */
-    @media (max-width: 768px) {
-      .left-column,
-      .right-column {
-        flex-basis: 100%; /* Make columns full-width on smaller screens */
-      }
+      color: #999; /* Light gray text color */
     }
   </style>
 </head>
 <body>
-  <h1 style="text-align: center;">Restaurant Menu</h1>
-  
-  <!-- Menu columns -->
+  <h1>Restaurant Menu</h1>
+
+  <!-- Menu items container -->
   <div class="menu-container">
-    <!-- Left column for items and quantities -->
-    <div class="left-column">
-      <div class="menu-item">
-        <span>Item 1</span>
-        <div class="unit-price-quantity">
-          <span class="unit-price">RM 10</span>
-          <div class="quantity-box">
-            <button class="minus">-</button>
-            <span class="quantity">0</span>
-            <button class="plus">+</button>
-          </div>
+    <!-- Menu items -->
+    <div class="menu-item">
+      <span>Item 1</span>
+      <div class="unit-price-quantity">
+        <span class="unit-price">RM 10</span>
+        <div class="quantity-box">
+          <button class="minus">-</button>
+          <span class="quantity">0</span>
+          <button class="plus">+</button>
         </div>
       </div>
-      <div class="menu-item">
-        <span>Long Item Name 2</span>
-        <div class="unit-price-quantity">
-          <span class="unit-price">RM 8</span>
-          <div class="quantity-box">
-            <button class="minus">-</button>
-            <span class="quantity">0</span>
-            <button class="plus">+</button>
-          </div>
-        </div>
-      </div>
-      <!-- Add more menu items and quantities on the left side here -->
     </div>
-    
-    <!-- Right column for items and quantities -->
-    <div class="right-column">
-      <div class="menu-item">
-        <span>Item 3</span>
-        <div class="unit-price-quantity">
-          <span class="unit-price">RM 12</span>
-          <div class="quantity-box">
-            <button class="minus">-</button>
-            <span class="quantity">0</span>
-            <button class="plus">+</button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <span>Very Long Item Name 4</span>
-        <div class="unit-price-quantity">
-          <span class="unit-price">RM 9</span>
-          <div class="quantity-box">
-            <button class="minus">-</button>
-            <span class="quantity">0</span>
-            <button class="plus">+</button>
-          </div>
-        </div>
-      </div>
-      <!-- Add more menu items and quantities on the right side here -->
+
+    <!-- Repeat similar menu items here -->
+  </div>
+
+  <!-- Order list container -->
+  <div id="order-list">
+    <ul></ul>
+  </div>
+
+  <!-- Order summary container -->
+  <div class="order-summary">
+    <div id="total-price">Total Price: RM 0.00</div>
+    <div id="order-remarks">
+      <!-- Label for the order remarks input -->
+      <label for="order-remarks-input" style="text-align: left; display: block;">Remark for your order:</label>
+      <textarea id="order-remarks-input" rows="2" placeholder="(e.g., No peanuts in the salad...)"></textarea>
     </div>
   </div>
 
-  <!-- Center box for displaying item list with quantities and total price -->
-  <div class="center-box">
-    <h2>Your Order</h2>
-    <!-- List of items with unit price on the right in a receipt-style format -->
-    <div id="order-list">
-      <div class="receipt">
-        <ul></ul>
-      </div>
-    </div>
-    
-    <!-- Container for total price and order remarks -->
-    <div class="order-summary">
-      <div id="total-price">Total Price: RM 0.00</div>
-      <!-- Updated order remarks input with initial text -->
-      <div id="order-remarks">
-        <label for="order-remarks-input" style="text-align: left; display: block;">Remark for your order:</label>
-        <textarea id="order-remarks-input" rows="2" placeholder="(e.g., No peanuts in the salad...)"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- JavaScript for quantity control -->
+  <!-- JavaScript for quantity control and order calculation -->
   <script>
-    // JavaScript for quantity control
     document.addEventListener('DOMContentLoaded', function () {
-      // Get all quantity boxes and buttons
-      const quantityBoxes = document.querySelectorAll('.quantity-box');
-      const plusButtons = document.querySelectorAll('.plus');
-      const minusButtons = document.querySelectorAll('.minus');
-      const selectedItems = [];
+      // Selecting buttons and quantity inputs
+      const quantityButtons = document.querySelectorAll('.quantity-box button');
+      const quantityInputs = document.querySelectorAll('.quantity');
+      const orderList = document.querySelector('#order-list ul');
+      const totalPriceElement = document.getElementById('total-price');
 
-      // Attach event listeners to plus and minus buttons
-      plusButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-          const quantityElement = quantityBoxes[index].querySelector('.quantity');
-          let quantity = parseInt(quantityElement.textContent);
-          quantity += 1;
-          quantityElement.textContent = quantity;
+      // Menu items data
+      const items = [
+        { name: 'Item 1', price: 10 },
+        // Add more items here as needed
+      ];
 
-          // Add the item index to the selectedItems array
-          if (quantity === 1) {
-            selectedItems.push(index);
-          }
-          updateOrderList();
-        });
-      });
+      // Array to store selected quantities
+      const selectedItems = new Array(items.length).fill(0);
 
-      minusButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-          const quantityElement = quantityBoxes[index].querySelector('.quantity');
-          let quantity = parseInt(quantityElement.textContent);
+      // Function to update the order list and total price
+      function updateOrderList() {
+        orderList.innerHTML = '';
+        let totalPrice = 0;
+
+        selectedItems.forEach((quantity, index) => {
           if (quantity > 0) {
-            quantity -= 1;
-            quantityElement.textContent = quantity;
+            const item = items[index];
+            const itemTotal = item.price * quantity;
+            totalPrice += itemTotal;
 
-            // Remove the item index from the selectedItems array
-            if (quantity === 0) {
-              const itemIndex = selectedItems.indexOf(index);
-              if (itemIndex !== -1) {
-                selectedItems.splice(itemIndex, 1);
-              }
-            }
+            const listItem = document.createElement('li');
+            listItem.className = 'receipt-item';
+            listItem.innerHTML = `
+              <span class="item-quantity">${quantity}x</span>
+              <span class="item-name">${item.name}</span>
+              <span class="item-price">RM ${itemTotal.toFixed(2)}</span>
+            `;
+            orderList.appendChild(listItem);
+          }
+        });
+
+        totalPriceElement.textContent = `Total Price: RM ${totalPrice.toFixed(2)}`;
+      }
+
+      // Event listeners for quantity buttons
+      quantityButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          const isIncrement = button.classList.contains('plus');
+          if (isIncrement || (selectedItems[index] > 0)) {
+            selectedItems[index] += isIncrement ? 1 : -1;
+            quantityInputs[index].textContent = selectedItems[index];
             updateOrderList();
           }
         });
       });
 
-      // Function to update the order list and calculate total price
-      function updateOrderList() {
-        const orderList = document.querySelector('#order-list ul');
-        const receiptList = document.querySelector('.receipt ul');
-        receiptList.innerHTML = '';
-
-        let totalPrice = 0; // Initialize total price
-
-        selectedItems.forEach((index) => {
-          const item = document.querySelectorAll('.menu-item')[index];
-          const itemName = item.querySelector('span').textContent;
-          const itemPrice = parseFloat(item.querySelector('.unit-price').textContent.replace('RM ', ''));
-
-          // Get the quantity for the current item
-          const quantity = parseInt(quantityBoxes[index].querySelector('.quantity').textContent);
-
-          // Calculate the item total
-          const itemTotal = itemPrice * quantity;
-
-          totalPrice += itemTotal; // Add item total to the total price
-
-          const listItem = document.createElement('li');
-          listItem.className = 'receipt-item';
-          listItem.innerHTML = `
-            <span class="item-quantity">${quantity}x</span>
-            <span class="item-name-space">&nbsp;</span>
-            <span class="item-name">${itemName}</span>
-            <span class="item-price">RM ${itemTotal.toFixed(2)}</span>
-          `;
-          receiptList.appendChild(listItem);
-        });
-
-        // Update the total price display
-        const totalPriceDiv = document.getElementById('total-price');
-        totalPriceDiv.textContent = `Total Price: RM ${totalPrice.toFixed(2)}`;
-      }
+      // Event listener for order remarks input
+      const orderRemarksInput = document.getElementById('order-remarks-input');
+      orderRemarksInput.addEventListener('input', () => {
+        // Handle changes in the remarks input here
+        const remarks = orderRemarksInput.value;
+        console.log(remarks);
+      });
     });
   </script>
 </body>
