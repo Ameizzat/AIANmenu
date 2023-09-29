@@ -6,25 +6,69 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <h1>Restaurant Menu</h1>
+ <h1>Restaurant Menu</h1>
   
   <!-- Menu columns -->
   <div class="menu-container">
     <!-- Left column for items and quantities -->
     <div class="left-column">
-      <!-- Menu items here -->
+      <div class="menu-item">
+        <span>Item 1</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 10</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>Long Item Name 2</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 8</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add more menu items and quantities on the left side here -->
     </div>
     
     <!-- Right column for items and quantities -->
     <div class="right-column">
-      <!-- Menu items here -->
+      <div class="menu-item">
+        <span>Item 3</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 12</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <span>Very Long Item Name 4</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 9</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+      </div>
+      <!-- Add more menu items and quantities on the right side here -->
     </div>
   </div>
 
   <!-- Center box for displaying item list with quantities and total price -->
   <div class="center-box">
     <h2>Your Order</h2>
-    <!-- List of items with unit price -->
+    <!-- List of items with unit price on the right in a receipt-style format -->
     <div id="order-list">
       <div class="receipt">
         <ul></ul>
@@ -34,10 +78,10 @@
     <!-- Container for total price and order remarks -->
     <div class="order-summary">
       <div id="total-price">Total Price: RM 0.00</div>
-      <!-- Order remarks input -->
+      <!-- Updated order remarks input with initial text -->
       <div id="order-remarks">
         <label for="order-remarks-input">Remarks for your order:</label>
-        <textarea id="order-remarks-input" rows="2" placeholder="(Example: No peanuts in the salad...)"></textarea>
+        <textarea id="order-remarks-input" rows="2" placeholder="(Cth: Satu nasi lemak tak nak kacang.....)"></textarea>
       </div>
     </div>
   </div>
