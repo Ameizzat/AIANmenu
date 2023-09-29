@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Restaurant Menu</h1>
+  
+  <!-- Menu columns -->
+  <div class="menu-container">
+    <!-- Left column for items and quantities -->
+    <div class="left-column">
+      <!-- Menu items here -->
+    </div>
+    
+    <!-- Right column for items and quantities -->
+    <div class="right-column">
+      <!-- Menu items here -->
+    </div>
+  </div>
+
+  <!-- Center box for displaying item list with quantities and total price -->
+  <div class="center-box">
+    <h2>Your Order</h2>
+    <!-- List of items with unit price -->
+    <div id="order-list">
+      <div class="receipt">
+        <ul></ul>
+      </div>
+    </div>
+    
+    <!-- Container for total price and order remarks -->
+    <div class="order-summary">
+      <div id="total-price">Total Price: RM 0.00</div>
+      <!-- Order remarks input -->
+      <div id="order-remarks">
+        <label for="order-remarks-input">Remarks for your order:</label>
+        <textarea id="order-remarks-input" rows="2" placeholder="(Example: No peanuts in the salad...)"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for quantity control -->
+  <script src="script.js"></script>
+</body>
+</html>
