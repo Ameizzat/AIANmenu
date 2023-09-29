@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
- <h1>Restaurant Menu</h1>
+  <h1>Restaurant Menu</h1>
   
   <!-- Menu columns -->
   <div class="menu-container">
@@ -34,7 +34,18 @@
           </div>
         </div>
       </div>
-      <!-- Add more menu items and quantities on the left side here -->
+      <!-- Add more menu items on the left side here -->
+      <div class="menu-item">
+        <span>Item 5</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 15</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+      </div>
     </div>
     
     <!-- Right column for items and quantities -->
@@ -61,7 +72,18 @@
           </div>
         </div>
       </div>
-      <!-- Add more menu items and quantities on the right side here -->
+      <!-- Add more menu items on the right side here -->
+      <div class="menu-item">
+        <span>Item 6</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 11</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -81,7 +103,7 @@
       <!-- Updated order remarks input with initial text -->
       <div id="order-remarks">
         <label for="order-remarks-input">Remarks for your order:</label>
-        <textarea id="order-remarks-input" rows="2" placeholder="(Cth: Satu nasi lemak tak nak kacang.....)"></textarea>
+        <textarea id="order-remarks-input" rows="2" placeholder="(Example: No peanuts in the salad...)"></textarea>
       </div>
     </div>
   </div>
