@@ -1,0 +1,71 @@
+/* Define CSS for the menu container */
+.menu-container {
+  /* CSS for menu container */
+}
+
+/* Define CSS for each menu column */
+.left-column,
+.right-column {
+  /* CSS for menu columns */
+}
+
+.menu-item {
+  /* CSS for menu items */
+}
+
+/* CSS for quantity box and buttons */
+.quantity-box {
+  /* CSS for quantity box */
+}
+
+/* CSS for minus button */
+.minus {
+  /* CSS for minus button */
+}
+
+/* CSS for center box */
+.center-box {
+  /* CSS for center box */
+}
+
+/* CSS for order list */
+#order-list ul {
+  /* CSS for order list */
+}
+
+/* CSS for item price */
+.item-price {
+  /* CSS for item price */
+}
+
+/* Receipt-style formatting */
+.receipt {
+  /* CSS for receipt */
+}
+
+.receipt-item {
+  /* CSS for receipt items */
+}
+
+/* CSS for order summary container */
+.order-summary {
+  /* CSS for order summary container */
+}
+
+/* CSS for total price display */
+#total-price {
+  /* CSS for total price */
+}
+
+/* CSS for order remarks input */
+#order-remarks-input {
+  /* CSS for order remarks input */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .left-column,
+  .right-column {
+    /* CSS for smaller screens */
+  }
+}
