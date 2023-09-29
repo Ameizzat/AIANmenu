@@ -108,4 +108,8 @@
   .right-column {
     flex-basis: 100%; /* Make columns full-width on smaller screens */
   }
+/* Style the label text to be left-aligned */
+.left-aligned-label {
+  text-align: left;
+}
 }
