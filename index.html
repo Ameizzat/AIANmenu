@@ -6,24 +6,44 @@
   <style>
     /* Define CSS for the menu container */
     .menu-container {
+      border: 1px solid #000;
+      padding: 30px;
+      max-width: 800px; /* Adjust the maximum width as needed */
+      margin: 0 auto;
+      background-color: #fff;
       display: flex;
-      flex-direction: column; /* Stack columns vertically */
-      max-width: 600px; /* Reduce the maximum width */
-      margin: 0 auto; /* Center the container horizontally */
-      padding: 20px; /* Add some padding */
     }
 
     /* Define CSS for each menu column */
-    .left-column,
-    .right-column {
-      flex-basis: 48%; /* Set the width of each column (48% with spacing) */
-      margin-bottom: 20px; /* Add space between columns */
+    .menu-column {
+      flex-grow: 1;
+      margin-right: 20px; /* Add space between columns */
+      padding: 10px; /* Add padding */
+      border-radius: 10px; /* Add rounded corners */
+      background-clip: padding-box; /* Clip background to the padding box */
+      background-origin: padding-box; /* Set background origin to the padding box */
+    }
+
+    /* Style the "Food" category */
+    .food-category {
+      background-color: rgba(255, 184, 133, 0.3); /* Peach color at 50% transparency */
+    }
+
+    /* Style the "Drinks" category */
+    .drinks-category {
+      background-color: rgba(173, 216, 230, 0.3); /* Light blue color at 50% transparency */
+    }
+
+    .menu-category {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
     }
 
     .menu-item {
       display: flex;
-      justify-content: space-between; /* Create space between unit price, quantity, and item */
-      align-items: center; /* Align unit price and quantity vertically */
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 10px;
     }
 
@@ -34,45 +54,45 @@
     }
 
     .unit-price-quantity {
-      display: flex; /* Create a flex container for unit price and quantity */
-      align-items: center; /* Vertically align unit price and quantity */
+      display: flex;
+      align-items: center;
     }
 
     .unit-price {
-      margin-top: 2px; /* Add 2px margin at the top of unit price */
+      margin-top: 2px;
     }
 
     .quantity {
-      margin: 0 10px; /* Margin between quantity and item */
-      align-self: flex-start; /* Align quantity to the top */
+      margin: 0 10px;
+      align-self: flex-start;
     }
 
     /* Style the minus button to add space on the left */
     .minus {
-      margin-left: 5px; /* Add space on the left of the minus button */
+      margin-left: 5px;
     }
 
     /* Style the center box */
     .center-box {
-      margin: 20px auto; /* Center the box horizontally */
+      border: 1px solid #000;
       padding: 20px;
-      background-color: rgba(255, 204, 153, 0.6); /* Peach background with 60% transparency */
-      border-radius: 10px; /* Rounded edges */
-      text-align: left; /* Align text to the left */
-      max-width: 400px; /* Reduce the width */
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      text-align: left;
     }
 
     /* Style the order list */
     #order-list ul {
-      list-style-type: none; /* Remove list bullets */
+      list-style-type: none;
       padding: 0;
     }
 
     /* Style the item price */
     .item-price {
-      margin-left: 10px; /* Add margin between item name and price */
-      flex-grow: 1; /* Allow item price to grow and fill available space */
-      text-align: right; /* Align item price to the right */
+      margin-left: 10px;
+      flex-grow: 1;
+      text-align: right;
     }
 
     /* Receipt-style formatting */
@@ -90,14 +110,15 @@
 
     /* Style the order summary container */
     .order-summary {
-      text-align: right; /* Align the contents to the right */
+      text-align: right;
       margin-top: 20px;
     }
 
     /* Style the total price display */
     #total-price {
-      font-weight: bold; /* Make the total price bold */
-      margin-top: 10px; /* Add some space at the top */
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     /* Style the order remarks input with initial text */
@@ -105,25 +126,30 @@
       width: 100%;
       padding: 5px;
       margin-top: 5px;
-      color: #999; /* Faded text color */
+      color: #999;
     }
 
     /* Responsive styles for smaller screens */
     @media (max-width: 768px) {
-      .left-column,
-      .right-column {
-        flex-basis: 100%; /* Make columns full-width on smaller screens */
+      .menu-container {
+        flex-direction: column; /* Stack columns vertically on smaller screens */
+      }
+
+      .menu-column {
+        margin-right: 0; /* Remove space between columns */
+        margin-bottom: 20px; /* Add space between categories */
       }
     }
   </style>
 </head>
 <body>
   <h1 style="text-align: center;">Restaurant Menu</h1>
-  
+
   <!-- Menu columns -->
   <div class="menu-container">
-    <!-- Left column for items and quantities -->
-    <div class="left-column">
+    <!-- Food Category -->
+    <div class="menu-column food-category">
+      <div class="menu-category">Food</div>
       <div class="menu-item">
         <span>Item 1</span>
         <div class="unit-price-quantity">
@@ -136,7 +162,7 @@
         </div>
       </div>
       <div class="menu-item">
-        <span>Long Item Name 2</span>
+        <span>Item 2</span>
         <div class="unit-price-quantity">
           <span class="unit-price">RM 8</span>
           <div class="quantity-box">
@@ -146,11 +172,11 @@
           </div>
         </div>
       </div>
-      <!-- Add more menu items and quantities on the left side here -->
     </div>
-    
-    <!-- Right column for items and quantities -->
-    <div class="right-column">
+
+    <!-- Drinks Category -->
+    <div class="menu-column drinks-category">
+      <div class="menu-category">Drinks</div>
       <div class="menu-item">
         <span>Item 3</span>
         <div class="unit-price-quantity">
@@ -163,7 +189,7 @@
         </div>
       </div>
       <div class="menu-item">
-        <span>Very Long Item Name 4</span>
+        <span>Item 4</span>
         <div class="unit-price-quantity">
           <span class="unit-price">RM 9</span>
           <div class="quantity-box">
@@ -173,7 +199,6 @@
           </div>
         </div>
       </div>
-      <!-- Add more menu items and quantities on the right side here -->
     </div>
   </div>
 
@@ -186,14 +211,14 @@
         <ul></ul>
       </div>
     </div>
-    
+
     <!-- Container for total price and order remarks -->
     <div class="order-summary">
       <div id="total-price">Total Price: RM 0.00</div>
       <!-- Updated order remarks input with initial text -->
       <div id="order-remarks">
-        <label for="order-remarks-input" style="text-align: left; display: block;">Remark for your order:</label>
-        <textarea id="order-remarks-input" rows="2" placeholder="(e.g., No peanuts in the salad...)"></textarea>
+        <label for="order-remarks-input" style="text-align: left; display: block;">Remark:</label>
+        <textarea id="order-remarks-input" rows="2" placeholder="(Cth: Satu nasi lemak tak nak kacang...)"></textarea>
       </div>
     </div>
   </div>
