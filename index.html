@@ -7,20 +7,24 @@
     /* Define CSS for the menu container */
     .menu-container {
       display: flex;
-      flex-wrap: wrap; /* Wrap columns on smaller screens */
-      justify-content: center; /* Center items horizontally */
-      max-width: 900px; /* Set a maximum width */
+      flex-direction: column; /* Stack columns vertically */
+      max-width: 900px; /* Reduce the maximum width */
       margin: 0 auto; /* Center the container horizontally */
       padding: 20px; /* Add some padding */
     }
 
+    /* Define CSS for each menu column */
+    .left-column,
+    .right-column {
+      flex-basis: 48%; /* Set the width of each column (48% with spacing) */
+      margin-bottom: 20px; /* Add space between columns */
+    }
+
     .menu-item {
-      flex-basis: calc(50% - 20px); /* Set the width of each column */
-      margin: 10px; /* Add spacing around items */
-      padding: 10px; /* Add inner padding */
-      background-color: rgba(255, 204, 153, 0.6); /* Peach background with 60% transparency */
-      border-radius: 10px; /* Rounded edges */
-      text-align: left; /* Align text to the left */
+      display: flex;
+      justify-content: space-between; /* Create space between unit price, quantity, and item */
+      align-items: center; /* Align unit price and quantity vertically */
+      margin-bottom: 10px;
     }
 
     /* Style the quantity box and buttons */
@@ -35,7 +39,27 @@
     }
 
     .unit-price {
-      margin-right: auto; /* Push the unit price to the left */
+      margin-top: 2px; /* Add 2px margin at the top of unit price */
+    }
+
+    .quantity {
+      margin: 0 10px; /* Margin between quantity and item */
+      align-self: flex-start; /* Align quantity to the top */
+    }
+
+    /* Style the minus button to add space on the left */
+    .minus {
+      margin-left: 5px; /* Add space on the left of the minus button */
+    }
+
+    /* Style the center box */
+    .center-box {
+      margin: 20px auto; /* Center the box horizontally */
+      padding: 20px;
+      background-color: rgba(255, 204, 153, 0.6); /* Peach background with 60% transparency */
+      border-radius: 10px; /* Rounded edges */
+      text-align: left; /* Align text to the left */
+      max-width: 400px; /* Reduce the width */
     }
 
     /* Style the order list */
@@ -46,8 +70,22 @@
 
     /* Style the item price */
     .item-price {
+      margin-left: 10px; /* Add margin between item name and price */
       flex-grow: 1; /* Allow item price to grow and fill available space */
       text-align: right; /* Align item price to the right */
+    }
+
+    /* Receipt-style formatting */
+    .receipt {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .receipt-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
     }
 
     /* Style the order summary container */
@@ -62,87 +100,100 @@
       margin-top: 10px; /* Add some space at the top */
     }
 
-    /* Align the "Remark for your order:" label to the left */
-    #order-remarks label {
-      text-align: left;
-      display: block; /* Ensure it takes full width */
+    /* Style the order remarks input with initial text */
+    #order-remarks-input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      color: #999; /* Faded text color */
+    }
+
+    /* Responsive styles for smaller screens */
+    @media (max-width: 768px) {
+      .left-column,
+      .right-column {
+        flex-basis: 100%; /* Make columns full-width on smaller screens */
+      }
     }
   </style>
 </head>
 <body>
   <h1 style="text-align: center;">Restaurant Menu</h1>
-
-  <!-- Menu items -->
+  
+  <!-- Menu columns -->
   <div class="menu-container">
-    <div class="menu-item">
-      <h2>Item 1</h2>
-      <div class="unit-price-quantity">
-        <span class="unit-price">RM 10</span>
-        <div class="quantity-box">
-          <button class="minus">-</button>
-          <span class="quantity">0</span>
-          <button class="plus">+</button>
+    <!-- Left column for items and quantities -->
+    <div class="left-column">
+      <div class="menu-item">
+        <span>Item 1</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 10</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="menu-item">
-      <h2>Long Item Name 2</h2>
-      <div class="unit-price-quantity">
-        <span class="unit-price">RM 8</span>
-        <div class="quantity-box">
-          <button class="minus">-</button>
-          <span class="quantity">0</span>
-          <button class="plus">+</button>
+      <div class="menu-item">
+        <span>Long Item Name 2</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 8</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
         </div>
       </div>
+      <!-- Add more menu items and quantities on the left side here -->
     </div>
-
-    <div class="menu-item">
-      <h2>Item 3</h2>
-      <div class="unit-price-quantity">
-        <span class="unit-price">RM 12</span>
-        <div class="quantity-box">
-          <button class="minus">-</button>
-          <span class="quantity">0</span>
-          <button class="plus">+</button>
+    
+    <!-- Right column for items and quantities -->
+    <div class="right-column">
+      <div class="menu-item">
+        <span>Item 3</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 12</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="menu-item">
-      <h2>Very Long Item Name 4</h2>
-      <div class="unit-price-quantity">
-        <span class="unit-price">RM 9</span>
-        <div class="quantity-box">
-          <button class="minus">-</button>
-          <span class="quantity">0</span>
-          <button class="plus">+</button>
+      <div class="menu-item">
+        <span>Very Long Item Name 4</span>
+        <div class="unit-price-quantity">
+          <span class="unit-price">RM 9</span>
+          <div class="quantity-box">
+            <button class="minus">-</button>
+            <span class="quantity">0</span>
+            <button class="plus">+</button>
+          </div>
         </div>
       </div>
+      <!-- Add more menu items and quantities on the right side here -->
     </div>
-    <!-- Add more menu items here -->
   </div>
 
   <!-- Center box for displaying item list with quantities and total price -->
-  <div class="menu-container">
-    <div class="menu-item">
-      <h2>Your Order</h2>
-      <!-- List of items with unit price on the right in a receipt-style format -->
-      <div id="order-list">
-        <div class="receipt">
-          <ul></ul>
-        </div>
+  <div class="center-box">
+    <h2>Your Order</h2>
+    <!-- List of items with unit price on the right in a receipt-style format -->
+    <div id="order-list">
+      <div class="receipt">
+        <ul></ul>
       </div>
-
-      <!-- Container for total price and order remarks -->
-      <div class="order-summary">
-        <div id="total-price">Total Price: RM 0.00</div>
-        <!-- Updated order remarks input with initial text -->
-        <div id="order-remarks">
-          <label for="order-remarks-input">Remark for your order:</label>
-          <textarea id="order-remarks-input" rows="2" placeholder="(e.g., No peanuts in the salad...)"></textarea>
-        </div>
+    </div>
+    
+    <!-- Container for total price and order remarks -->
+    <div class="order-summary">
+      <div id="total-price">Total Price: RM 0.00</div>
+      <!-- Updated order remarks input with initial text -->
+      <div id="order-remarks">
+        <label for="order-remarks-input" style="text-align: left; display: block;">Remark for your order:</label>
+        <textarea id="order-remarks-input" rows="2" placeholder="(e.g., No peanuts in the salad...)"></textarea>
       </div>
     </div>
   </div>
@@ -203,7 +254,7 @@
 
         selectedItems.forEach((index) => {
           const item = document.querySelectorAll('.menu-item')[index];
-          const itemName = item.querySelector('h2').textContent;
+          const itemName = item.querySelector('span').textContent;
           const itemPrice = parseFloat(item.querySelector('.unit-price').textContent.replace('RM ', ''));
 
           // Get the quantity for the current item
