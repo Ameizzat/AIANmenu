@@ -1,71 +1,111 @@
 /* Define CSS for the menu container */
-.menu-container {
-  /* CSS for menu container */
-}
+    .menu-container {
+      display: flex;
+      flex-direction: column; /* Stack columns vertically */
+      max-width: 900px; /* Reduce the maximum width */
+      margin: 0 auto; /* Center the container horizontally */
+      padding: 20px; /* Add some padding */
+    }
 
-/* Define CSS for each menu column */
-.left-column,
-.right-column {
-  /* CSS for menu columns */
-}
+    /* Define CSS for each menu column */
+    .left-column,
+    .right-column {
+      flex-basis: 48%; /* Set the width of each column (48% with spacing) */
+      margin-bottom: 20px; /* Add space between columns */
+    }
 
-.menu-item {
-  /* CSS for menu items */
-}
+    .menu-item {
+      display: flex;
+      justify-content: space-between; /* Create space between unit price, quantity, and item */
+      align-items: center; /* Align unit price and quantity vertically */
+      margin-bottom: 10px;
+    }
 
-/* CSS for quantity box and buttons */
-.quantity-box {
-  /* CSS for quantity box */
-}
+    /* Style the quantity box and buttons */
+    .quantity-box {
+      display: flex;
+      align-items: center;
+    }
 
-/* CSS for minus button */
-.minus {
-  /* CSS for minus button */
-}
+    .unit-price-quantity {
+      display: flex; /* Create a flex container for unit price and quantity */
+      align-items: center; /* Vertically align unit price and quantity */
+    }
 
-/* CSS for center box */
-.center-box {
-  /* CSS for center box */
-}
+    .unit-price {
+      margin-top: 2px; /* Add 2px margin at the top of unit price */
+    }
 
-/* CSS for order list */
-#order-list ul {
-  /* CSS for order list */
-}
+    .quantity {
+      margin: 0 10px; /* Margin between quantity and item */
+      align-self: flex-start; /* Align quantity to the top */
+    }
 
-/* CSS for item price */
-.item-price {
-  /* CSS for item price */
-}
+    /* Style the minus button to add space on the left */
+    .minus {
+      margin-left: 5px; /* Add space on the left of the minus button */
+    }
 
-/* Receipt-style formatting */
-.receipt {
-  /* CSS for receipt */
-}
+    /* Style the center box */
+    .center-box {
+      margin: 20px auto; /* Center the box horizontally */
+      padding: 20px;
+      background-color: rgba(255, 204, 153, 0.6); /* Peach background with 60% transparency */
+      border-radius: 10px; /* Rounded edges */
+      text-align: left; /* Align text to the left */
+      max-width: 400px; /* Reduce the width */
+    }
 
-.receipt-item {
-  /* CSS for receipt items */
-}
+    /* Style the order list */
+    #order-list ul {
+      list-style-type: none; /* Remove list bullets */
+      padding: 0;
+    }
 
-/* CSS for order summary container */
-.order-summary {
-  /* CSS for order summary container */
-}
+    /* Style the item price */
+    .item-price {
+      margin-left: 10px; /* Add margin between item name and price */
+      flex-grow: 1; /* Allow item price to grow and fill available space */
+      text-align: right; /* Align item price to the right */
+    }
 
-/* CSS for total price display */
-#total-price {
-  /* CSS for total price */
-}
+    /* Receipt-style formatting */
+    .receipt {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-top: 20px;
+    }
 
-/* CSS for order remarks input */
-#order-remarks-input {
-  /* CSS for order remarks input */
-}
+    .receipt-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
 
-/* Responsive styles for smaller screens */
-@media (max-width: 768px) {
-  .left-column,
-  .right-column {
-    /* CSS for smaller screens */
-  }
-}
+    /* Style the order summary container */
+    .order-summary {
+      text-align: right; /* Align the contents to the right */
+      margin-top: 20px;
+    }
+
+    /* Style the total price display */
+    #total-price {
+      font-weight: bold; /* Make the total price bold */
+      margin-top: 10px; /* Add some space at the top */
+    }
+
+    /* Style the order remarks input with initial text */
+    #order-remarks-input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      color: #999; /* Faded text color */
+    }
+
+    /* Responsive styles for smaller screens */
+    @media (max-width: 768px) {
+      .left-column,
+      .right-column {
+        flex-basis: 100%; /* Make columns full-width on smaller screens */
+      }
+    }
