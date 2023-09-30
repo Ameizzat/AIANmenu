@@ -129,20 +129,21 @@
       color: #000;
     }
 
-    /* Responsive styles for smaller screens */
-    @media (max-width: 768px) {
-      .menu-container {
-        flex-direction: column; /* Stack columns vertically on smaller screens */
-      }
-
-      .menu-column {
-        margin-right: 0; /* Remove space between columns */
-        margin-bottom: 20px; /* Add space between categories */
-      }
+    /* Additional CSS for table number input */
+    #table-number-input {
+      width: 40px;
+      font-size: 20px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
+  <!-- Input field for table number -->
+  <div style="text-align: center; margin-top: 20px;">
+    <label for="table-number-input">Table Number:</label>
+    <input type="text" id="table-number-input">
+  </div>
+
   <h1 style="text-align: center;">Restaurant Menu</h1>
 
   <!-- Menu columns -->
@@ -204,7 +205,9 @@
 
   <!-- Center box for displaying item list with quantities and total price -->
   <div class="center-box">
-    <h2>Your Order</h2>
+    <!-- Display the table number from the input field -->
+    <h2 id="table-number">Table Number: <span id="table-number-value">-</span></h2>
+
     <!-- List of items with unit price on the right in a receipt-style format -->
     <div id="order-list">
       <div class="receipt">
@@ -214,19 +217,30 @@
 
     <!-- Container for total price and order remarks -->
     <div class="order-summary">
+      <!-- Updated order summary heading -->
       <div id="total-price">Total Price: RM 0.00</div>
       <!-- Updated order remarks input with initial text -->
       <div id="order-remarks">
         <label for="order-remarks-input" style="text-align: left; display: block;">Remark:</label>
-        <textarea id="order-remarks-input" rows="2" placeholder="(Cth: Satu nasi lemak tak nak kacang...)"></textarea>
+        <textarea id="order-remarks-input" rows="2" placeholder="(E.g., No onions, extra cheese...)"></textarea>
       </div>
     </div>
   </div>
 
-  <!-- JavaScript for quantity control -->
+  <!-- JavaScript for quantity control and table number -->
   <script>
-    // JavaScript for quantity control
     document.addEventListener('DOMContentLoaded', function () {
+      // Get the table number input field and order summary element
+      const tableNumberInput = document.getElementById('table-number-input');
+      const tableNumberValue = document.getElementById('table-number-value');
+
+      // Update the table number in the order summary when input changes
+      tableNumberInput.addEventListener('input', function () {
+        const tableNumber = tableNumberInput.value || '-';
+        tableNumberValue.textContent = tableNumber;
+      });
+
+      // JavaScript for quantity control
       // Get all quantity boxes and buttons
       const quantityBoxes = document.querySelectorAll('.quantity-box');
       const plusButtons = document.querySelectorAll('.plus');
