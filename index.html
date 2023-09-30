@@ -4,34 +4,49 @@
   <title>Restaurant Menu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Reset some default styles for better cross-browser consistency */
+    body, h1, h2, ul, li, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Define global styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
     /* Define CSS for the menu container */
     .menu-container {
       border: 1px solid #000;
       padding: 20px;
-      max-width: 800px; /* Adjust the maximum width as needed */
+      max-width: 100%; /* Adjust the maximum width as needed */
       margin: 0 auto;
       background-color: #fff;
       display: flex;
+      flex-wrap: wrap; /* Enable wrapping for small screens */
     }
 
     /* Define CSS for each menu column */
     .menu-column {
-      flex-grow: 1;
-      margin-right: 20px; /* Add space between columns */
-      padding: 10px; /* Add padding */
-      border-radius: 10px; /* Add rounded corners */
-      background-clip: padding-box; /* Clip background to the padding box */
-      background-origin: padding-box; /* Set background origin to the padding box */
+      flex: 1; /* Distribute columns equally */
+      margin-right: 0; /* No margin between columns for small screens */
+      margin-bottom: 20px; /* Add spacing between columns */
+      padding: 10px;
+      border-radius: 10px;
+      background-clip: padding-box;
+      background-origin: padding-box;
     }
 
     /* Style the "Food" category */
     .food-category {
-      background-color: rgba(255, 184, 133, 0.3); /* Peach color at 50% transparency */
+      background-color: rgba(255, 184, 133, 0.3);
     }
 
     /* Style the "Drinks" category */
     .drinks-category {
-      background-color: rgba(173, 216, 230, 0.3); /* Light blue color at 50% transparency */
+      background-color: rgba(173, 216, 230, 0.3);
     }
 
     .menu-category {
@@ -76,7 +91,7 @@
     .center-box {
       border: 1px solid #000;
       padding: 20px;
-      max-width: 400px;
+      max-width: 40%;
       margin: 20px auto;
       background-color: #fff;
       text-align: left;
@@ -133,18 +148,32 @@
     #table-number-input {
       width: 40px;
       font-size: 20px;
+      margin-bottom: 10px;
       text-align: center;
+    }
+
+    /* Media query for small screens (up to 768px) */
+    @media screen and (max-width: 768px) {
+      .menu-container {
+        flex-direction: column; /* Stack columns for small screens */
+      }
+
+      .menu-column {
+        flex: 1; /* Full width for small screens */
+        margin-bottom: 10px; /* Reduce spacing between columns */
+      }
     }
   </style>
 </head>
 <body>
+  
+  <h1 style="text-align: center;">Restaurant Menu</h1>
+
   <!-- Input field for table number -->
   <div style="text-align: center; margin-top: 20px;">
     <label for="table-number-input">Table Number:</label>
     <input type="text" id="table-number-input">
   </div>
-
-  <h1 style="text-align: center;">Restaurant Menu</h1>
 
   <!-- Menu columns -->
   <div class="menu-container">
@@ -177,7 +206,7 @@
 
     <!-- Drinks Category -->
     <div class="menu-column drinks-category">
-      <div class="menu-category"style="text-align: center;">Drinks</div>
+      <div class="menu-category" style="text-align: center;">Drinks</div>
       <div class="menu-item">
         <span>Item 3</span>
         <div class="unit-price-quantity">
